@@ -1,0 +1,20 @@
+#ifndef RANDOM_H_
+#define RANDOM_H_
+
+class Random{
+
+	public:
+		Random(int seed);
+		void setA(int a){_a=a;};
+		void setA(int m){_m=m;};
+		void setA(int c){_c=c;};
+		double Rand();
+
+	private:
+		unsigned int _a;
+		unsigned int _m;
+		unsigned int _c;
+		unsigned int _seed;
+};
+
+#endif

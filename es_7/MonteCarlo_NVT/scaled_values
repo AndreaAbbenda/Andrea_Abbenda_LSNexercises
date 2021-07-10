@@ -1,0 +1,23 @@
+  ReadInput >> temp;
+  beta = 1.0/temp;
+  cout << "Temperature = " << temp << endl;
+
+  ReadInput >> npart;
+  cout << "Number of particles = " << npart << endl;
+
+  ReadInput >> rho;
+  cout << "Density of particles = " << rho*pow(0.34,3)<<" nm^-3"<< endl;
+  vol = (double)npart/(rho*pow(0.34,3));
+  box = pow(vol,1.0/3.0);
+  cout << "Volume of the simulation box = " << vol << " nm^3" << endl;
+  cout << "Edge of the simulation box = " << box <<" nm"<< endl;
+
+  ReadInput >> rcut;
+  cout << "Cutoff of the interatomic potential = " << rcut*0.34  <<" nm" << endl << endl;
+    
+  //Tail corrections for potential energy and pressure
+  vtail = (8.0*pi*rho)/(9.0*pow(rcut,9)) - (8.0*pi*rho)/(3.0*pow(rcut,3));
+  ptail = (32.0*pi*rho)/(9.0*pow(rcut,9)) - (16.0*pi*rho)/(3.0*pow(rcut,3));
+  cout << "Tail correction for the potential energy = " << vtail << endl;
+  cout << "Tail correction for the virial           = " << ptail << endl; 
+

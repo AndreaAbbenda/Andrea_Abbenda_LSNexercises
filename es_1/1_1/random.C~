@@ -1,0 +1,27 @@
+#include <iostream>
+#include <cmath>
+#include "random.h"
+
+using namespace std;
+
+Random::Random(int seed){
+	_a=1664525;
+	_c=1013904223;
+	_m=pow(2,31);
+	_seed=seed;
+
+};
+
+Random::Random(int seed, int a, int c, int m){
+	_a=a;
+	_c=c;
+	_m=m;
+	_seed=seed;
+
+};
+
+double Random:: Rand(){
+	_seed=(_a*_seed+_c)%_m;
+	double d1=double(_seed)/double(_m-1);
+return d1;	
+};
